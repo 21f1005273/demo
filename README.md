@@ -75,6 +75,7 @@ ScamShield-Final/
 ├── app/                        # Backend application
 │   ├── server.py               # Main API server (port 5000)
 │   ├── ai_server.py            # AI analysis server (port 8000)
+│   ├── for_ai_server.py        # AI server helper module
 │   ├── audio_processor.py      # Audio processing & transcription
 │   ├── database.py             # Database models (SQLModel)
 │   ├── config.py               # Configuration settings
@@ -82,20 +83,34 @@ ScamShield-Final/
 │       └── encryption.py       # AES-256-GCM encryption utilities
 ├── frontend/                   # Vue.js frontend
 │   ├── src/
-│   │   ├── views/              # Vue components
+│   │   ├── views/              # Vue components (pages)
+│   │   ├── layouts/            # Layout components
 │   │   ├── router/             # Route definitions
-│   │   └── assets/             # Images and static files
-│   └── public/
-│       └── audio/              # Sample audio recordings
+│   │   ├── assets/             # Images and static files
+│   │   ├── App.vue             # Root Vue component
+│   │   └── main.js             # Vue application entry point
+│   ├── public/
+│   │   ├── audio/              # Sample audio recordings
+│   │   ├── icons/              # UI icons (signal, battery, wifi)
+│   │   ├── favicon.ico         # Browser icon
+│   │   └── logo.jpg            # Application logo
+│   ├── package.json            # Node.js dependencies
+│   ├── vite.config.js          # Vite configuration
+│   └── index.html              # HTML entry point
 ├── tests/                      # Test suite (23 tests)
 │   ├── test_api.py             # API endpoint tests
 │   ├── test_database.py        # Database tests
 │   ├── test_encryption.py      # Encryption tests
 │   └── conftest.py             # Pytest fixtures
 ├── recordings/                 # Sample audio files
-├── audio_chunks/               # Processed audio chunks
+│   ├── recording0.mp3          # Banking KYC scam call
+│   ├── recording1.mp3          # Credit card rewards scam
+│   └── recording2.mp3          # Normal call between friends
+├── audio_chunks/               # Processed audio chunks (generated)
 ├── requirements.txt            # Python dependencies
 ├── pytest.ini                  # Pytest configuration
+├── run_processor.py            # Audio processing utility script
+├── scamshield_logs.db          # SQLite database (generated)
 └── README.md                   # This file
 ```
 
@@ -112,8 +127,8 @@ ScamShield-Final/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd ScamShield-Final
+git clone https://github.com/21f3001445/soft-engg-project-sep-2025-se-SEP-8.git
+cd soft-engg-project-sep-2025-se-SEP-8
 ```
 
 ### 2. Backend Setup
